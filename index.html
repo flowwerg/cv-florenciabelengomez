@@ -22,7 +22,68 @@
             margin: 0;
             padding: 0;
         }
-
+/* ----- ADAPTACIÓN PARA CELULARES (MOBILE RESPONSIVE) ----- */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px 10px;
+            }
+            .cv-container {
+                padding: 35px 20px;
+                gap: 25px;
+            }
+            .corner-star {
+                width: 80px;
+                height: 80px;
+                top: -10px;
+                left: -10px;
+            }
+            .header-section {
+                flex-direction: column-reverse; /* Pone la foto arriba y el texto abajo */
+                text-align: center;
+                gap: 20px;
+            }
+            .name-first {
+                font-size: 50px; /* Letra más chica para que no se desborde */
+            }
+            .name-last {
+                font-size: 65px;
+                margin-left: 0;
+            }
+            .role-badge {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            .profile-pic {
+                width: 140px;
+                transform: rotate(0deg); /* Endereza la foto en mobile */
+            }
+            .contact-list {
+                flex-direction: column; /* Apila el contacto hacia abajo */
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .contact-list li {
+                font-size: 12.5px;
+            }
+            .contact-list li:not(:last-child)::after {
+                content: none; /* Oculta los puntitos separadores */
+            }
+            .job-item {
+                flex-direction: column; /* Apila las fechas arriba de la experiencia */
+                gap: 8px;
+                margin-bottom: 25px;
+            }
+            .job-date-col {
+                width: 100%;
+                border-bottom: 1px dashed var(--mint-green);
+                padding-bottom: 5px;
+                margin-bottom: 5px;
+            }
+            .grid-2-col, .grid-3-col {
+                grid-template-columns: 1fr; /* Pasa las habilidades y educación a 1 sola columna */
+                gap: 15px;
+            }
+        }
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #D6D6D6;
