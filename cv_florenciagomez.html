@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Florencia Gómez - Senior Product Manager</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400;900&family=Poppins:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-cream: #F4F1EB;
+            --mint-green: #A5D6B6;
+            --pink-accent: #EC7F9B;
+            --text-dark: #232323;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #D6D6D6;
+            color: var(--text-dark);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .cv-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 900px;
+            background-color: var(--bg-cream);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            padding: 60px;
+            gap: 35px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ----- ELEMENTO DE FONDO (ESTRELLA) ----- */
+        .corner-star {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 120px;
+            height: 120px;
+            fill: var(--pink-accent);
+            opacity: 0.8;
+            z-index: 0;
+            transform: rotate(-15deg);
+        }
+
+        /* ----- ENCABEZADO ----- */
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .name-title {
+            font-family: 'Londrina Solid', cursive;
+            font-weight: 300;
+            color: var(--text-dark);
+            line-height: 0.9;
+            letter-spacing: 2px;
+        }
+
+        .name-first {
+            font-size: 75px;
+            display: block;
+        }
+
+        .name-last {
+            font-size: 100px;
+            margin-left: 20px;
+            display: block;
+        }
+
+        .role-badge {
+            display: inline-block;
+            margin-left: 25px;
+            margin-top: 15px;
+            background-color: var(--mint-green);
+            padding: 8px 15px;
+            transform: rotate(-2deg);
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+        }
+
+        .profile-pic {
+            width: 170px;
+            aspect-ratio: 4/5;
+            border-radius: 8px;
+            object-fit: cover;
+            background-color: var(--mint-green);
+            transform: rotate(3deg);
+            box-shadow: 8px 8px 0px rgba(0,0,0,0.05);
+        }
+
+        /* ----- CONTACTO UNA SOLA LINEA ----- */
+        .contact-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            list-style: none;
+            border-top: 1.5px solid var(--text-dark);
+            border-bottom: 1.5px solid var(--text-dark);
+            padding: 12px 0;
+            z-index: 1;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            font-size: 11.5px;
+            font-weight: 600;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+        }
+
+        .contact-list li:not(:last-child)::after {
+            content: "•";
+            margin-left: 12px;
+            color: var(--pink-accent);
+        }
+
+        /* ----- SECCIONES ----- */
+        .section-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            border-bottom: 3px solid var(--mint-green);
+            padding-bottom: 4px;
+            display: inline-block;
+        }
+
+        .body-text {
+            font-size: 14px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* ----- EXPERIENCIA ----- */
+        .job-item {
+            display: flex;
+            gap: 35px;
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+
+        .job-date-col {
+            width: 110px;
+            flex-shrink: 0;
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--pink-accent);
+            line-height: 1.4;
+        }
+
+        .job-details-col {
+            flex-grow: 1;
+        }
+
+        .job-role {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .job-company {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 13.5px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .company-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 2px solid var(--mint-green);
+            transition: all 0.2s;
+        }
+
+        .company-link:hover { background-color: var(--mint-green); }
+
+        .job-bullets {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-bullets li {
+            font-size: 13.5px;
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .job-bullets li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--pink-accent);
+            font-weight: bold;
+        }
+
+        /* ----- GRIDS ----- */
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .grid-3-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .grid-item {
+            display: flex;
+            gap: 10px;
+            font-size: 12.5px;
+        }
+
+        .grid-item strong {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
+
+        .bullet-icon { color: var(--pink-accent); font-weight: bold; }
+
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            body { background: none; padding: 0; }
+            .cv-container { box-shadow: none; max-width: 100%; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <svg class="corner-star" viewBox="0 0 24 24">
+            <path d="M12 0C13 6 18 11 24 12C18 13 13 18 12 24C11 18 6 13 0 12C6 11 11 6 12 0Z"/>
+        </svg>
+        
+        <header class="header-section">
+            <div class="header-text">
+                <h1 class="name-title">
+                    <span class="name-first">FLORENCIA</span>
+                    <span class="name-last">GÓMEZ</span>
+                </h1>
+                <div class="role-badge">Senior Product Manager</div>
+            </div>
+            <img src="Flor%20Gomez.jpg" alt="Florencia Gómez" class="profile-pic">
+        </header>
+
+        <ul class="contact-list">
+            <li>+54 11 54848657</li>
+            <li>florencia.gomez93@gmail.com</li>
+            <li>linkedin.com/in/florgomez93</li>
+            <li>Buenos Aires, Argentina</li>
+        </ul>
+
+        <section>
+            <h2 class="section-title">SOBRE MÍ</h2>
+            <p class="body-text">
+                Senior Product Manager con más de 5 años liderando productos digitales B2B/B2B2C y 14 años de <em>background</em> tecnológico. Profesionalmente, me define la búsqueda de la excelencia y el orden impecable, pero mi brújula para decidir es siempre la intuición forjada por la experiencia. En el día a día, aporto una energía magnética, espontánea y leal: trabajo con una sonrisa y uso el buen humor como catalizador para destrabar problemas. Lidero equipos multidisciplinarios conectando la empatía con la visión estratégica, los datos (OKRs) y la ejecución Agile, logrando que el trabajo fluya de manera natural para generar un impacto real y escalable en el negocio.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="section-title">EXPERIENCIA CORE</h2>
+            
+            <div class="job-item">
+                <div class="job-date-col">MAY 2025<br>PRESENTE</div>
+                <div class="job-details-col">
+                    <div class="job-role">Product & Solutions Manager B2B</div>
+                    <span class="job-company">en <a href="https://orkos.com.ar" target="_blank" class="company-link">Orkos</a></span>
+                    <ul class="job-bullets">
+                        <li>Diseñé y ejecuté la estrategia de <em>Go-to-Market</em> para la captación de <em>leads</em> en un nicho altamente especializado, impulsando la adquisición mediante webinars técnicos y comerciales centrados en problemáticas de "disponibilidad".</li>
+                        <li>Lideré la expansión y gestión del portafolio de soluciones B2B, administrando alianzas estratégicas con 4 marcas globales e integrando servicios internos para maximizar el valor entregado al cliente.</li>
+                        <li>Actué como puente estratégico entre el negocio y los clientes clave, liderando sesiones de alineación operativa para reducir fricciones y mejorar la adopción de las soluciones.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job-item">
+                <div class="job-date-col">ENE 2024<br>MAY 2025</div>
+                <div class="job-details-col">
+                    <div class="job-role">Product Lead (B2B2C): Mental Health Team</div>
+                    <span class="job-company">en <a href="https://psimammoliti.com" target="_blank" class="company-link">Psi Mammoliti</a></span>
+                    <ul class="job-bullets">
+                        <li><strong>Lideré un equipo de 6 personas</strong> (1 manager y 5 especialistas funcionales) para la automatización de procesos operativos, mejorando la eficiencia operativa en un 30% en menos de 3 meses.</li>
+                        <li>Reduje el proceso de <em>onboarding</em> de profesionales ingresantes de 16 a 9 pasos, incrementando la velocidad de incorporación en un 43% mediante el diseño de un sistema de autogestión.</li>
+                        <li>Mejoré la calidad de asignación de pacientes B2B2C implementando un ranking basado en métricas de rendimiento, alineando al equipo con los OKRs estratégicos de la organización.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job-item">
+                <div class="job-date-col">FEB 2021<br>ENE 2024</div>
+                <div class="job-details-col">
+                    <div class="job-role">Product Manager SR.</div>
+                    <span class="job-company">en <a href="https://cliengo.com" target="_blank" class="company-link">Cliengo</a></span>
+                    <ul class="job-bullets">
+                        <li><strong>Lideré y desarrollé un squad multidisciplinario de 8 personas</strong> (UX, Devs, QA, Tech Lead) enfocado en el crecimiento y adopción de canales de mensajería (WhatsApp, Facebook, Instagram) bajo metodologías Agile.</li>
+                        <li>Aceleré el lanzamiento de un MVP prioritario organizando y liderando un <em>hackathon</em> interno, integrando análisis de mercado y feedback de clientes para garantizar el impacto.</li>
+                        <li>Lideré la implementación en tiempo récord de un producto beta de Google, estableciendo OKRs trimestrales para mantener la alineación y superación constante del equipo.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">EXPERIENCIAS PREVIAS - EVOLUCIÓN TÉCNICA</h2>
+            <div class="job-item">
+                <div class="job-date-col">2011 – 2021</div>
+                <div class="job-details-col">
+                    <div class="job-role">De Developer a Product Manager</div>
+                    <span class="job-company">en <a href="https://baufest.com" target="_blank" class="company-link">Baufest</a>, <a href="https://santander.com.ar" target="_blank" class="company-link">Santander</a>, <a href="https://accenture.com" target="_blank" class="company-link">Accenture</a>, <a href="https://thomsonreuters.com" target="_blank" class="company-link">Thomson Reuters</a></span>
+                    <ul class="job-bullets">
+                        <li><strong>Product Manager (Baufest):</strong> Consolidé la transición al rol de Producto liderando estrategia y <em>backlog</em> (Scrum) para clientes de las industrias Agro y Fintech.</li>
+                        <li><strong>Business Analyst & Functional Sr:</strong> Nexo estratégico entre negocio y tecnología. Lideré definiciones funcionales, A/B Testing, modelado (UML) y flujos CI/CD para YPF y GCBA.</li>
+                        <li><strong>Junior Developer (Thomson Reuters):</strong> Inicios <em>hands-on</em> en desarrollo, <em>bug fixing</em> y administración Unix/Linux, forjando las bases técnicas para interactuar con arquitecturas complejas.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">EMPRENDIMIENTO</h2>
+            <div class="job-item">
+                <div class="job-date-col">ENE 2025<br>ACTUAL</div>
+                <div class="job-details-col">
+                    <div class="job-role">Founder & Growth Marketer</div>
+                    <span class="job-company">en Emprendimiento Digital Propio</span>
+                    <ul class="job-bullets">
+                        <li>Fundé y escalé un negocio enfocado en <em>Growth</em> y Marketing, gestionando el ciclo de vida completo de estrategias para 4 clientes de forma simultánea con fuerte visión de negocio.</li>
+                        <li>Diseñé e implementé estrategias de automatización y segmentación, optimizando el costo de adquisición (CAC) y maximizando la retención.</li>
+                        <li>Actualmente escalo esta unidad de negocios integrando <strong>Inteligencia Artificial agéntica</strong> para automatizar procesos operativos clave de forma sostenible.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">EDUCACIÓN</h2>
+            <div class="grid-2-col">
+                <div class="grid-item"><span class="bullet-icon">★</span><div><strong>IA: Automatizaciones y Agentes</strong>Coderhouse (En curso, 2026)</div></div>
+                <div class="grid-item"><span class="bullet-icon">★</span><div><strong>Licenciatura en Sistemas</strong>Univ. John F. Kennedy (2011-2018)</div></div>
+                <div class="grid-item"><span class="bullet-icon">★</span><div><strong>Diseño Multimedial</strong>ISEC (2013-2016)</div></div>
+                <div class="grid-item"><span class="bullet-icon">★</span><div><strong>Estrategias de Ventas B2B</strong>Certificación IBM / Ventas</div></div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">HABILIDADES</h2>
+            <div class="grid-3-col">
+                <div class="grid-item"><span class="bullet-icon">▪</span><div><strong>Estrategia</strong> End-to-End, Roadmapping, OKRs/KPIs, Go-to-Market.</div></div>
+                <div class="grid-item"><span class="bullet-icon">▪</span><div><strong>Innovación</strong> Agentes IA, Prompt Engineering, No-Code / Low-Code.</div></div>
+                <div class="grid-item"><span class="bullet-icon">▪</span><div><strong>Metodologías</strong> Agile (Scrum/Kanban), UX/UI, CI/CD.</div></div>
+                <div class="grid-item"><span class="bullet-icon">▪</span><div><strong>Herramientas</strong> Jira, Confluence, Figma, Miro, CRMs.</div></div>
+                <div class="grid-item"><span class="bullet-icon">▪</span><div><strong>Tecnología</strong> APIs, SQL, Arq. Modular.</div></div>
+                <div class="grid-item"><span class="bullet-icon">▪</span><div><strong>Idiomas</strong> Inglés (B2), Italiano (Int).</div></div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
